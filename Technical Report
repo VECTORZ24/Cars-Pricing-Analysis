@@ -1,0 +1,219 @@
+1 Introduction
+1.1 Background and Motivation
+Car pricing in Tunisia often lacks transparency,
+leading sellers to misjudge their car’s value and
+buyers to risk overpaying. To reduce mispricing and
+improve trust in the market, a data-driven system is
+needed to analyze historical car data and predict
+fair prices based on a vehicle’s features.
+1.2 Problem Statement
+There is no clear or consistent method to evaluate car
+prices especially in Tunisia and generally worldwide.
+1.3 Research Objectives
+• Analyze car market behavior and pricing trends in
+Tunisia.
+• Identify key relationships and patterns within
+multivariate car data.
+• Segment cars and buyer types using clustering
+techniques.
+• Reduce data complexity to extract the main latent
+factors affecting price.
+• Discover associations between car features and their
+impact on pricing.
+1.4 Research Questions
+Are cars in the Tunisian market generally overpriced by
+sellers?
+What is the fair market value of a given car based on
+its features?
+2 Data Collection
+and Sampling
+2.1 Data Source
+I got the dataset from real life examples datasets
+web sit and this is the name of the csv file when
+downloading it: “1.04. Real-life example”
+2.2 Sampling
+It’s a full population dataset!
+2.3 Variables Description
+List of the column variables of the dataset:
+['Brand'
+,
+'Price
+'
+,
+'Body
+'
+,
+'Mileage
+'
+,
+'EngineV'
+,
+'Engine
+Type
+'
+,
+'Registration
+'
+,
+'Year
+'
+,
+'Model']
+2.4 Data Cleaning & Preparation
+• handling missing data,
+• detecting and treating outliers,
+• scaling or normalising variables when needed,
+• preparing the dataset for PCA, clustering, or rule mining
+3 Methodology
+3.1 Analytical Tools Used
+Python (or R equivalent) for data processing, cleaning,
+and statistical modeling
+Pandas / dplyr for data manipulation
+Seaborn & Matplotlib / ggplot2 for exploratory
+visualization
+Quantile-based outlier removal (0.99 and 0.01
+thresholds)
+Train–test split (80% training, 20% testing)
+Linear Regression Model for price prediction
+K-Means Clustering (k = 3) for grouping cars based on
+similarity
+Model evaluation metrics:
+Mean Squared Error (MSE)
+R-squared (R²)
+3.2 Model Technique Specification
+Linear Regression Model
+Dependent variable:
+➤ Price
+Independent variables:
+Engine Volume (EngineV)
+Mileage
+Year
+Model Equation:
+Price=β0+β1(EngineV)+β2(Mileage)+β3(Year)
+Justification:
+Linear regression provides interpretability.
+Used for predicting continuous outcomes (car
+prices).
+Easy inspection of variable importance.
+K-Means Clustering (k = 3)
+Objective: group cars based on key
+numeric attributes.
+Variables used:
+EngineV
+Mileage
+Year
+Purpose:
+Detect segments in car market
+Support pricing strategy
+Identify cars with similar
+performance/usage characteristics
+📌 4. Results & Interpretation
+4.1 Exploratory Findings
+Price:
+Strong right skew: a few luxury cars distort the
+distribution.
+Outliers removed using the 99th percentile.
+EngineV:
+Majority of cars have EngineV < 6.5
+Outliers removed above that threshold.
+Mileage:
+Heavy tail distribution; highest 1% removed.
+Higher mileage generally correlates with lower
+car prices.
+Year:
+Older cars show strong downward trend;
+bottom 1% of years removed.
+4.2 Multivariate Results
+Linear Regression Output
+EngineV → positive effect on price
+Mileage → negative effect on price
+Year → strongest positive effect on price
+Model metrics:
+Low MSE → good prediction accuracy
+High R² → model explains a strong
+proportion of price variance
+Interpretation:
+Newer cars are consistently valued higher
+Larger engine volume increases price
+Higher mileage reduces price significantly
+4.3 K-Means Cluster Results
+Cluster 1: Low-end / Older Cars
+Low EngineV
+High Mileage
+Older Model Years
+Associated with low prices
+Cluster 2: Mid-range Cars
+Moderate EngineV
+Moderate Mileage
+Mid-range Year
+Represent average market price segment
+Cluster 3: Premium / Newer Cars
+High EngineV
+Low Mileage
+Newest model years
+Represent high-value vehicles
+Interpretation:
+The market is clearly segmented into low, mid, and highvalue cars
+Training a price prediction model on these features is
+meaningful because clusters align with economic
+categories
+📌 5. Conclusion & Recommendations
+5.1 Main Insights
+Outlier removal significantly improves
+model stability and reduces skew.
+Price is strongly driven by Year and
+Mileage, with EngineV also contributing.
+Linear regression is effective in
+predicting car prices.
+K-Means clustering reveals clear market
+segmentation that supports pricing
+strategy.
+5.2 Business / Managerial Implications
+For Car Dealerships:
+Better pricing strategy:
+Can price vehicles more accurately using
+regression predictions.
+Customer targeting:
+Clusters help identify which cars appeal to
+value, mid-range, or premium customers.
+Inventory optimization:
+Dealerships can prioritize acquiring models
+in high-demand segments.
+For Buyers:
+Identify whether a car is priced fairly relative
+to similar models.
+5.3 Limitations
+Limited number of variables (e.g., Brand,
+Features, Condition not included).
+Linear regression assumes linear
+relationships—real markets may be
+more complex.
+K-means requires pre-defining number
+of clusters (k = 3 chosen heuristically).
+Dataset may not represent all market
+variations (region, brand demand, etc.).
+5.4 Future Extensions
+Add additional predictive features: brand,
+transmission, fuel type, condition.
+Use non-linear models for improved accuracy:
+Random Forest
+Gradient Boosting
+XGBoost
+Explore hierarchical or density-based
+clustering for deeper segmentation.
+Deploy model as a web app for real-time price
+predictions.
+Add feature engineering:
+Car age (Year difference)
+Mileage per year
+Interaction terms
+THANK YOU
+SO MUCH!
+I have used both Python and R, you can check both
+scripts. The Python version presents the executed results,
+the charts, the dataframe tables and statistical values.
+The R code also can execute the same results.
+You will find the dataframe attached with the Python
+and R codes.
+I hope it will please you and reflect the quality you
+expect.
